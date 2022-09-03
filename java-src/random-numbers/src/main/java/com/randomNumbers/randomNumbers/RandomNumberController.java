@@ -1,13 +1,13 @@
-package com.randomLetters.randomLetters;
+package com.randomNumbers.randomNumbers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class RandomLetterController {
+public class RandomNumberController {
 
-    @GetMapping("/randomLetter")
+    @GetMapping("/randomNumber")
     public String generateRandomString(){
-        return "L";
+        return "1";
     }
 }
