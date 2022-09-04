@@ -1,0 +1,47 @@
+version: "3.4"
+services:
+  random-gateway:
+    container_name: random-gateway
+    build: java-src/random-gateway
+    environment:
+      - "OTEL_SERVICE_NAME=random-gateway"
+      - "OTEL_TRACES_EXPORTER=jaeger"
+      - "OTEL_EXPORTER_JAEGER_ENDPOINT=http://jaeger:14250"
+      - "OTEL_METRICS_EXPORTER=prometheus"
+      - "OTEL_EXPORTER_PROMETHEUS_PORT=9000"
+    ports:
+      - "8080:8080"
+      - "9000:9000"
+    networks:
+      - tracing
+  random-letters:
+    container_name: random-letters
+    build: java-src/random-letters
+    environment:
+      - "OTEL_SERVICE_NAME=random-letters"
+      - "OTEL_TRACES_EXPORTER=jaeger"
+      - "OTEL_EXPORTER_JAEGER_ENDPOINT=http://jaeger:14250"
+      - "OTEL_METRICS_EXPORTER=prometheus"
+      - "OTEL_EXPORTER_PROMETHEUS_PORT=9001"
+    ports:
+      - "8081:8081"
+      - "9001:9001"
+    networks:
+      - tracing
+  random-numbers:
+    container_name: random-numbers
+    build: java-src/random-numbers
+    environment:
+      - "OTEL_SERVICE_NAME=random-numbers"
+      - "OTEL_TRACES_EXPORTER=jaeger"
+      - "OTEL_EXPORTER_JAEGER_ENDPOINT=http://jaeger:14250"
+      - "OTEL_METRICS_EXPORTER=prometheus"
+      - "OTEL_EXPORTER_PROMETHEUS_PORT=9002"
+    ports:
+      - "8082:8082"
+      - "9002:9002"
+    networks:
+      - tracing
+networks:
+  tracing:
+    name: tracing

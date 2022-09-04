@@ -13,11 +13,11 @@ public class GatewayController {
     Random random = new Random();
     final int maxCharactersToReturn = 15;
 
-    WebClient randomLettersClient = WebClient.create("http://localhost:8081");
+    WebClient randomLettersClient = WebClient.create("http://random-letters:8081");
     WebClient.UriSpec<WebClient.RequestBodySpec> letterUriSpec = (WebClient.UriSpec<WebClient.RequestBodySpec>) randomLettersClient.get();
     WebClient.RequestBodySpec letterBodySpec = letterUriSpec.uri("/randomLetter");
 
-    WebClient randomNumbersClient = WebClient.create("http://localhost:8082");
+    WebClient randomNumbersClient = WebClient.create("http://random-numbers:8082");
     WebClient.UriSpec<WebClient.RequestBodySpec> numberUriSpec = (WebClient.UriSpec<WebClient.RequestBodySpec>) randomNumbersClient.get();
     WebClient.RequestBodySpec numberBodySpec = numberUriSpec.uri("/randomNumber");
 
