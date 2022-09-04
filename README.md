@@ -1,5 +1,5 @@
 # Mini Distributed Tracing
-A not very random string generator that is instrumented with OpenTelemetry to export Jaeger traces to the included Jaeger deployment. If you run the project, you will be able to generate and view traces in the Jaeger UI:
+A not very random string generator that is instrumented with OpenTelemetry to export Jaeger traces to the included Jaeger deployment. This is the easiest implementation possible using the OpenTelemetry java agent with no custom spans. If you run the project, you will be able to generate and view traces in the Jaeger UI:
 
 ![image](https://user-images.githubusercontent.com/7340923/188333657-e09aa135-2b95-4df2-bf87-6e1e75bc20c0.png)
 
