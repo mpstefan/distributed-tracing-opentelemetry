@@ -21,8 +21,8 @@ Each of the above services are instrumented with the Java OpenTelemetry Agent (s
 ## How to Run
 
 Pre-requisites:
-*docker
-*docker-compose
+* docker
+* docker-compose
 
 Open a terminal in the root of this repository, build, then run using docker-compose:
 ```
